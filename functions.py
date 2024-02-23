@@ -22,7 +22,7 @@ def probabalityCalculate(wordCountDictionary):
 
 
 def lemmaWord(word):
-    return list(pattern.lemma(wd) for wd in word.split())[0]
+    return list(pattern.lexmene(wd) for wd in word.split())[0]
 
 def deleteLetter(word):
     deleteList = []
@@ -33,28 +33,30 @@ def deleteLetter(word):
         deleteList.append(a+b[1:])
     return deleteList
 
-def switch_(word):
+def switch(word):
     splitList = []
     switchL = []
-    for i in range (len(word)):
-        splitList.append((word[0:i],word[i:]))
+    for i in range(len(word)):
+        splitList.append((word[0:i], word[i:]))
     switchL = [a + b[1] + b[0] + b[2:] for a, b in splitList if len(b) >= 2]
     return switchL
 
-def replace_(word):
-    splitL=[]
+
+def replace(word):
+    splitL = []
     replaceList = []
     for i in range(len(word)):
         splitL.append((word[0:i], word[i:]))
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
-    replaceList = [a + l + (b[1:] if len(b) > 1 else '') for a, b in splitL if b for l in alphabet]
+    replaceList = [a + l + (b[1:] if len(b) > 1 else '')
+                    for a, b in splitL if b for l in alphabet]
     return replaceList
 
-def insert_(word):
-    splitL=[]
+def insert(word):
+    splitL = []
     insertList = []
-    for i in range(len(word)+1):
-        splitL.append((word[0:i],word[i:]))
+    for i in range(len(word) + 1):
+        splitL.append((word[0:i], word[i:]))
     alphabet = 'abcdefghijklmnopqrstuvwxyz'
     insertList = [a + l + b for a, b in splitL for l in alphabet]
     return insertList
@@ -63,9 +65,9 @@ def colab_1(word, allowSwitches=True):
     colab_1 = set()
     colab_1.update(deleteLetter(word))
     if allowSwitches:
-        colab_1.update(switch_(word))
-    colab_1.update(replace_(word))
-    colab_1.update(insert_(word))
+        colab_1.update(switch(word))
+    colab_1.update(replace(word))
+    colab_1.update(insert(word))
     return colab_1
 
 def colab_2(word, allowSwitches=True):

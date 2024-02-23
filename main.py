@@ -1,7 +1,7 @@
 import re
 import functions
 w = []
-with open('Data/final.txt','r',encoding="utf") as f:
+with open('Data/biggest.txt','r',encoding="utf") as f:
     fileName = f.read()
     fileName = fileName.lower()
     w = re.findall('\w+',fileName)
