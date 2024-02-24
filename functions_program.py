@@ -90,6 +90,3 @@ def getCorrections(word, probablity, vocabulary, n=2):
     suggestions = list((word in vocabulary and word) or editOneLetter(word).intersection(vocabulary) or editTwoLetters(word).intersection(vocabulary))
     n_best = [[s,probablity[s]] for s in list(reversed(suggestions))]
     return n_best
-
-
-    
