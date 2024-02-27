@@ -84,7 +84,7 @@ def editTwoLetters(word,allowSwitches = True):
             editTwoSet.update(editTwo)
     return editTwoSet
 
-def getCorrections(word, probablity, vocabulary, n=2):
+def getCorrections(word, probablity, vocabulary):
     suggestion = []
     n_best = []
     suggestions = list((word in vocabulary and word) or editOneLetter(word).intersection(vocabulary) or editTwoLetters(word).intersection(vocabulary))
