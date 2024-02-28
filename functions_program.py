@@ -70,6 +70,7 @@ def editOneLetter(word, allowSwitches = True):
     editOneSet.update(deleteLetter(word))
     if allowSwitches:
         editOneSet.update(switchLetter(word))
+        
     editOneSet.update(replaceLetter(word))
     editOneSet.update(insertLetter(word))
     
